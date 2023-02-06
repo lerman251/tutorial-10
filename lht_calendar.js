@@ -31,7 +31,16 @@
 */
 
 var thisDay = new Date("August 24, 2018");
-document.getElementById("calender").innerHTML = createcalendar(thisDay);
+document.getElementById("calendar").innerHTML = createCalendar(thisDay);
 function createCalendar(calDate) {
-    var caled
+    var calendarHTML = "<table id='calendar_table'>";
+    calendarHTML += calCaption(calDate);
+    calendarHTML += "</table>";
+    return calendarHTML;
+}
+function calCaption(calDate) {
+    var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var thisMonth = calDate.getMonth();
+    var thisYear = calDate.getFullYear();
+    return "<caption>" + monthName[thisMonth] + " " + thisYear + "</caption>";
 }
